@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Starlight Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;800&family=Outfit:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: dark;
+  --void:#070515; --nebula:#2a1160; --magenta:#c0399f; --ink:#f6f3ff; --muted:#c9c2e8;
+  --cyan:#5ef2ff; --amber:#ffc23d; --amber-ink:#1b1130;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  margin:0; color:var(--ink); font-family:'Outfit',system-ui,sans-serif; font-size:1.125rem; line-height:1.6;
+  background:
+    radial-gradient(ellipse 60% 45% at 78% 12%, rgba(192,57,159,.55), transparent 70%),
+    radial-gradient(ellipse 70% 55% at 15% 30%, rgba(94,242,255,.22), transparent 70%),
+    radial-gradient(ellipse 80% 60% at 55% 85%, var(--nebula), transparent 75%),
+    var(--void);
+  background-attachment:fixed; min-height:100vh;
+}
+#stars{position:fixed; inset:0; width:100%; height:100%; z-index:0; pointer-events:none}
+main,header,footer{position:relative; z-index:1; max-width:68rem; margin:0 auto; padding-left:1.5rem; padding-right:1.5rem}
+header{display:flex; justify-content:space-between; align-items:center; padding-top:1.5rem; gap:1rem; flex-wrap:wrap}
+.logo{font-family:'Unbounded',sans-serif; font-weight:800; font-size:1.1rem; color:var(--ink); text-decoration:none}
+nav{display:flex; gap:1.5rem}
+nav a{color:var(--muted); text-decoration:none; font-weight:500}
+nav a:hover{color:var(--cyan)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--cyan); outline-offset:3px; border-radius:6px}
+.hero{padding:7rem 0 5rem; max-width:46rem}
+h1{font-family:'Unbounded',sans-serif; font-weight:800; font-size:clamp(2.4rem,7vw,4.6rem); line-height:1.05; margin:0 0 1.5rem; letter-spacing:-.02em;
+   text-shadow:0 0 40px rgba(94,242,255,.35)}
+.lead{color:var(--muted); font-size:1.3rem; max-width:34rem; margin:0 0 2.2rem}
+.btn{display:inline-block; background:var(--amber); color:var(--amber-ink); font-family:'Unbounded',sans-serif; font-weight:500; font-size:1rem;
+     padding:1rem 1.8rem; border-radius:999px; text-decoration:none; box-shadow:0 0 32px rgba(255,194,61,.45); transition:transform .15s, box-shadow .15s}
+.btn:hover{transform:scale(1.04); box-shadow:0 0 48px rgba(255,194,61,.7)}
+.btn.alt{background:transparent; color:var(--cyan); border:2px solid var(--cyan); box-shadow:none; margin-left:.8rem}
+.btn.alt:hover{box-shadow:0 0 24px rgba(94,242,255,.5)}
+section{padding:3rem 0}
+h2{font-family:'Unbounded',sans-serif; font-weight:500; font-size:clamp(1.5rem,4vw,2.2rem); margin:0 0 2rem}
+.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(15rem,1fr)); gap:1.5rem}
+.card{background:rgba(14,8,40,.72); border:1px solid rgba(94,242,255,.28); border-radius:1.2rem; padding:1.6rem; backdrop-filter:blur(6px)}
+.card h3{font-family:'Unbounded',sans-serif; font-weight:500; font-size:1.1rem; margin:0 0 .6rem; color:var(--cyan)}
+.card p{margin:0; color:var(--muted)}
+.cta{text-align:center; padding:4rem 1.5rem; margin:3rem 0; border-radius:1.6rem; background:rgba(14,8,40,.72); border:1px solid rgba(255,194,61,.45)}
+.cta h2{margin-bottom:1rem}
+.cta p{color:var(--muted); margin:0 auto 2rem; max-width:30rem}
+footer{padding-top:2rem; padding-bottom:3rem; color:var(--muted); font-size:.95rem}
+@media (max-width:30rem){.btn.alt{margin:.8rem 0 0}}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}}
+</style>
+</head>
+<body>
+<canvas id="stars" aria-hidden="true"></canvas>
+<header>
+  <a class="logo" href="#top">Starlight Studio</a>
+  <nav aria-label="Main"><a href="#work">What we do</a><a href="#contact">Contact</a></nav>
+</header>
+<main id="top">
+  <div class="hero">
+    <h1>Websites that people find, remember, and share</h1>
+    <p class="lead">We build fast, bold sites for small businesses and creators, so the right visitors land on you first.</p>
+    <a class="btn" href="#contact">Get your free site review</a><a class="btn alt" href="#work">See what we do</a>
+  </div>
+  <section id="work">
+    <h2>Three ways we grow your visits</h2>
+    <div class="grid">
+      <div class="card"><h3>Stand-out design</h3><p>A look that is unmistakably yours, so people recognize your site the moment it loads.</p></div>
+      <div class="card"><h3>Search-ready pages</h3><p>Clear titles, fast loading, and readable text that help search engines send people your way.</p></div>
+      <div class="card"><h3>Clear next steps</h3><p>One bright button per screen tells visitors exactly what to do, from booking to buying.</p></div>
+    </div>
+  </section>
+  <section class="cta" id="contact">
+    <h2>Ready to be seen?</h2>
+    <p>Send us your site address and we will reply within two days with three quick wins.</p>
+    <a class="btn" href="mailto:hello@example.com">Email us your site</a>
+  </section>
+</main>
+<footer>© 2026 Starlight Studio. Replace this text with your own.</footer>
+<script>
+(function(){
+  var c=document.getElementById('stars'),x=c.getContext('2d'),s=[],w,h;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function size(){w=c.width=innerWidth;h=c.height=innerHeight;s=[];var n=Math.min(260,Math.floor(w*h/6500));
+    for(var i=0;i<n;i++)s.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.4+.3,p:Math.random()*6.28,v:Math.random()*.02+.005});}
+  function draw(){x.clearRect(0,0,w,h);
+    s.forEach(function(t){t.p+=t.v;var a=.45+.55*Math.sin(t.p);x.globalAlpha=reduce?.8:a;x.fillStyle='#fff';x.beginPath();x.arc(t.x,t.y,t.r,0,6.28);x.fill();});
+    if(!reduce)requestAnimationFrame(draw);}
+  addEventListener('resize',function(){size();draw();});
+  size();draw();
+})();
+</script>
+</body>
+</html>
